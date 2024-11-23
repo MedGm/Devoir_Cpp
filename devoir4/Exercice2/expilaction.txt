@@ -1,0 +1,60 @@
+Explication des instructions de comparaison dans l'héritage point/pointcol :
+
+1. if (a == b) : 
+    CORRECTE
+    Compare deux objets pointcol en utilisant l'opérateur == hérité de la classe point.
+    Seuls les membres x et y sont comparés, pas la couleur (cl).
+
+2. if (a == p) :
+    CORRECTE 
+    Compare un pointcol (a) avec un point (p).
+    Conversion implicite de pointcol vers point (upcast).
+
+3. if (p == a) :
+    CORRECTE
+    Même cas que l'instruction 2.
+    L'ordre des opérandes n'a pas d'importance.
+
+4. if (a == 5) :
+    INCORRECTE
+    La conversion implicite d'un entier en point n'est pas possible ici.
+    L'opérateur == n'est défini que pour comparer deux points.
+
+5. if (5 == a) :
+    INCORRECTE
+    Même problème que l'instruction 4.
+    L'ordre des opérandes ne change rien à l'impossibilité de conversion.
+
+Note: Dans tous les cas valides, seules les coordonnées x et y sont comparées,
+la couleur (cl) des pointcol n'est pas prise en compte dans la comparaison.
+
+ii) Mêmes questions, en supposant, cette fois, que l’opérateur + a été défini au sein de point, sous forme d’une fonction
+membre.
+
+1. if (a + b) : 
+    CORRECTE
+    Additionne deux objets pointcol en utilisant l'opérateur + hérité de point.
+    Seuls les membres x et y sont additionnés, pas la couleur.
+
+2. if (a + p) :
+    CORRECTE 
+    Additionne un pointcol (a) avec un point (p).
+    Conversion implicite de pointcol vers point pour l'addition.
+
+3. if (p + a) :
+    CORRECTE
+    Addition d'un point avec un pointcol.
+    Le pointcol est converti en point pour l'opération.
+
+4. if (a + 5) :
+    INCORRECTE
+    L'opérateur + n'est pas défini pour additionner un point avec un entier.
+    Pas de conversion implicite d'entier vers point.
+
+5. if (5 + a) :
+    INCORRECTE
+    Même erreur que le cas 4.
+    L'ordre des opérandes ne change pas la validité.
+
+Note: Dans les cas valides, l'addition ne concerne que les coordonnées x et y,
+la couleur des pointcol n'est pas considérée dans l'opération.
